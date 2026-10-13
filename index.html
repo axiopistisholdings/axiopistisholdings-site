@@ -84,18 +84,18 @@
   @keyframes fill{0%{width:0}55%{width:100%}100%{width:100%}}
 
   /* ----- MyCryptoSignal (dark + blue accent) ----- */
-  .ad-mcs{background:#14161A; box-shadow:0 10px 30px -12px rgba(20,22,26,.7)}
+  .ad-mcs{background:#14161A; box-shadow:0 10px 30px -12px rgba(20,22,26,.7); padding-bottom:96px}
   .ad-mcs:hover{box-shadow:0 22px 44px -14px rgba(27,79,216,.6); border-color:#1B4FD8}
   .ad-mcs .mark{color:#1B4FD8; background:rgba(27,79,216,.14)}
   .ad-mcs .ad-badge{background:rgba(255,255,255,.10); color:#cfe0ff}
   .ad-mcs .ad-cta{color:#cfe0ff}
   .ad-mcs .tag{display:inline-block; margin-top:12px; font-size:.8rem; letter-spacing:.4px;
       color:#8fb0ff; text-transform:uppercase}
-  .mcs-line{position:absolute; right:-10px; bottom:-6px; width:66%; max-width:320px; color:#1B4FD8;
-      opacity:.9; pointer-events:none}
-  .mcs-line svg{width:100%; height:auto}
-  .mcs-line .pulse{stroke-dasharray:230; stroke-dashoffset:230; animation:draw 3.4s ease-in-out infinite}
-  .mcs-line .dot{transform-origin:46px 22px; animation:blip 3.4s ease-in-out infinite}
+  .mcs-line{position:absolute; left:0; right:0; bottom:0; height:78px; color:#1B4FD8;
+      opacity:.85; pointer-events:none}
+  .mcs-line svg{width:100%; height:100%; display:block}
+  .mcs-line .pulse{stroke-dasharray:240; stroke-dashoffset:240; animation:draw 3.4s ease-in-out infinite}
+  .mcs-line .dot{transform-box:fill-box; transform-origin:center; animation:blip 3.4s ease-in-out infinite}
   @keyframes draw{0%{stroke-dashoffset:230}45%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
   @keyframes blip{0%,45%{transform:scale(.6); opacity:.3}60%{transform:scale(1.25); opacity:1}100%{transform:scale(1); opacity:.9}}
 
@@ -192,9 +192,9 @@
             </span>
           </div>
           <div class="mcs-line" aria-hidden="true">
-            <svg viewBox="0 0 100 84">
-              <path class="pulse" d="M0 60H22L44 18L62 60H100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle class="dot" cx="44" cy="18" r="5" fill="currentColor"/>
+            <svg viewBox="0 0 200 44" preserveAspectRatio="none">
+              <path class="pulse" d="M0 36H62L92 8L122 36H200" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle class="dot" cx="92" cy="8" r="5" fill="currentColor"/>
             </svg>
           </div>
         </a>

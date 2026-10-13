@@ -76,13 +76,9 @@
   .ad-firmabizz .mark{background:#fff; box-shadow:0 4px 12px rgba(0,0,0,.18)}
   .ad-firmabizz .mark img{width:30px; height:30px; display:block}
   .ad-firmabizz .ad-badge{background:rgba(255,255,255,.18); color:#fff}
-  .fizz{position:absolute; inset:auto 0 0 0; height:96px; opacity:.9; pointer-events:none}
-  .fizz .row{position:absolute; left:24px; right:24px; height:6px; border-radius:6px; background:rgba(255,255,255,.22); overflow:hidden}
-  .fizz .row i{position:absolute; inset:0; width:0; background:#fff; border-radius:6px; animation:fill 3.2s ease-in-out infinite}
-  .fizz .row:nth-child(1){bottom:64px} .fizz .row:nth-child(1) i{animation-delay:.0s}
-  .fizz .row:nth-child(2){bottom:50px; right:90px} .fizz .row:nth-child(2) i{animation-delay:.35s}
-  .fizz .row:nth-child(3){bottom:36px; right:140px} .fizz .row:nth-child(3) i{animation-delay:.7s}
-  @keyframes fill{0%{width:0}55%{width:100%}100%{width:100%}}
+  .fz-pills{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+  .fz-pills span{font-size:.72rem; font-weight:600; letter-spacing:.2px; padding:4px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.5); color:#fff; background:rgba(255,255,255,.12)}
 
   /* ----- MyCryptoSignal (dark + blue accent) ----- */
   .ad-mcs{background:#14161A; box-shadow:0 10px 30px -12px rgba(20,22,26,.7); padding-bottom:96px}
@@ -163,13 +159,13 @@
           </div>
           <div class="ad-body">
             <h3>FirmaBizz</h3>
-            <p>Software that helps you prepare common immigration and tax forms.</p>
+            <p>Immigration and tax document preparation.</p>
+            <div class="fz-pills">
+              <span>USCIS Forms</span><span>Tax Returns</span><span>24/7 Access</span>
+            </div>
             <span class="ad-cta">Visit FirmaBizz
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
             </span>
-          </div>
-          <div class="fizz" aria-hidden="true">
-            <div class="row"><i></i></div><div class="row"><i></i></div><div class="row"><i></i></div>
           </div>
         </a>
 

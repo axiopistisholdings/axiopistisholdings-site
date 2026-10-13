@@ -23,18 +23,15 @@
 
 <style>
   :root{
-    --ink:#2C3539; --muted:#5b666b; --line:#e6e8ea; --bg:#ffffff; --soft:#f7f8f9;
-    --max:760px;
+    --ink:#2C3539; --muted:#5b666b; --line:#e6e8ea; --bg:#ffffff; --soft:#f7f8f9; --max:820px;
   }
   *{box-sizing:border-box}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
+  body{margin:0; background:var(--bg); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.65; -webkit-font-smoothing:antialiased;
-  }
+    line-height:1.65; -webkit-font-smoothing:antialiased;}
   .container{max-width:var(--max); margin:0 auto; padding:48px 22px 0}
   header{text-align:center; padding-bottom:8px}
-  header img{width:132px; height:auto; display:inline-block}
+  header img{width:132px; height:auto}
   h1{font-size:1.6rem; letter-spacing:.2px; margin:18px 0 4px}
   .tagline{color:var(--muted); margin:0 0 6px}
   .entity-line{color:var(--muted); font-size:.9rem; letter-spacing:.4px; text-transform:uppercase}
@@ -45,25 +42,83 @@
   .card{flex:1 1 220px; border:1px solid var(--line); border-radius:10px; padding:18px; background:var(--soft)}
   .card h3{margin:0 0 6px; font-size:1rem}
   .card p{margin:0; color:var(--muted); font-size:.94rem}
-  .property{display:flex; align-items:center; justify-content:space-between; gap:14px;
-    border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-bottom:12px}
-  .property .info h3{margin:0 0 2px; font-size:1.02rem}
-  .property .info p{margin:0; color:var(--muted); font-size:.9rem}
-  .badge{display:inline-block; font-size:.75rem; letter-spacing:.4px; text-transform:uppercase;
-    padding:3px 9px; border-radius:999px; border:1px solid var(--line); color:var(--muted); background:#fff}
-  .badge.live{color:#1f7a3d; border-color:#bfe3cb}
-  .badge.build{color:#8a6d1f; border-color:#e7dcb8}
-  .btn{display:inline-block; padding:9px 16px; background:var(--ink); color:#fff !important;
-    text-decoration:none; border-radius:8px; font-size:.9rem; white-space:nowrap}
-  .btn:hover{background:#1a2124}
   dl.facts{margin:0; display:grid; grid-template-columns:190px 1fr; gap:6px 16px}
   dl.facts dt{color:var(--muted); font-size:.9rem}
   dl.facts dd{margin:0}
   footer{margin-top:60px; border-top:1px solid var(--line); background:var(--soft); padding:28px 22px}
   footer .inner{max-width:var(--max); margin:0 auto; text-align:center; color:var(--muted); font-size:.9rem}
-  footer a{color:var(--ink)}
-  footer p{margin:6px 0}
+  footer a{color:var(--ink)} footer p{margin:6px 0}
   a{color:var(--ink)}
+
+  /* ======================= PORTFOLIO — the "pop" ======================= */
+  .ads{display:grid; grid-template-columns:1fr; gap:20px}
+  @media(min-width:720px){ .ads{grid-template-columns:1fr 1fr} .ad.wide{grid-column:1 / -1} }
+
+  .ad{position:relative; display:block; text-decoration:none; overflow:hidden;
+      border-radius:18px; padding:24px; min-height:236px; isolation:isolate;
+      transition:transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s, border-color .35s;
+      border:1px solid transparent; color:#fff}
+  .ad:hover{transform:translateY(-4px)}
+  .ad .ad-top{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:26px}
+  .ad h3{margin:0 0 6px; font-size:1.42rem; letter-spacing:.2px}
+  .ad .ad-body p{margin:0; font-size:.98rem; opacity:.92; max-width:36ch}
+  .ad .ad-cta{display:inline-flex; align-items:center; gap:8px; margin-top:18px;
+      font-size:.92rem; font-weight:600; letter-spacing:.2px; opacity:.95}
+  .ad .ad-cta svg{transition:transform .3s}
+  .ad:hover .ad-cta svg{transform:translateX(4px)}
+  .ad-badge{font-size:.7rem; letter-spacing:.6px; text-transform:uppercase; font-weight:700;
+      padding:4px 10px; border-radius:999px; backdrop-filter:blur(4px)}
+  .mark{display:grid; place-items:center; width:46px; height:46px; border-radius:12px}
+
+  /* ----- FirmaBizz (teal -> indigo) ----- */
+  .ad-firmabizz{background:linear-gradient(135deg,#0D9488 0%,#4F46E5 100%); box-shadow:0 10px 30px -12px rgba(13,148,136,.6)}
+  .ad-firmabizz:hover{box-shadow:0 22px 44px -14px rgba(79,70,229,.65)}
+  .ad-firmabizz .mark{background:rgba(255,255,255,.18)}
+  .ad-firmabizz .ad-badge{background:rgba(255,255,255,.18); color:#fff}
+  .fizz{position:absolute; inset:auto 0 0 0; height:96px; opacity:.9; pointer-events:none}
+  .fizz .row{position:absolute; left:24px; right:24px; height:6px; border-radius:6px; background:rgba(255,255,255,.22); overflow:hidden}
+  .fizz .row i{position:absolute; inset:0; width:0; background:#fff; border-radius:6px; animation:fill 3.2s ease-in-out infinite}
+  .fizz .row:nth-child(1){bottom:64px} .fizz .row:nth-child(1) i{animation-delay:.0s}
+  .fizz .row:nth-child(2){bottom:50px; right:90px} .fizz .row:nth-child(2) i{animation-delay:.35s}
+  .fizz .row:nth-child(3){bottom:36px; right:140px} .fizz .row:nth-child(3) i{animation-delay:.7s}
+  @keyframes fill{0%{width:0}55%{width:100%}100%{width:100%}}
+
+  /* ----- MyCryptoSignal (dark + blue accent) ----- */
+  .ad-mcs{background:#14161A; box-shadow:0 10px 30px -12px rgba(20,22,26,.7)}
+  .ad-mcs:hover{box-shadow:0 22px 44px -14px rgba(27,79,216,.6); border-color:#1B4FD8}
+  .ad-mcs .mark{color:#1B4FD8; background:rgba(27,79,216,.14)}
+  .ad-mcs .ad-badge{background:rgba(255,255,255,.10); color:#cfe0ff}
+  .ad-mcs .ad-cta{color:#cfe0ff}
+  .ad-mcs .tag{display:inline-block; margin-top:12px; font-size:.8rem; letter-spacing:.4px;
+      color:#8fb0ff; text-transform:uppercase}
+  .mcs-line{position:absolute; right:-10px; bottom:-6px; width:66%; max-width:320px; color:#1B4FD8;
+      opacity:.9; pointer-events:none}
+  .mcs-line svg{width:100%; height:auto}
+  .mcs-line .pulse{stroke-dasharray:230; stroke-dashoffset:230; animation:draw 3.4s ease-in-out infinite}
+  .mcs-line .dot{transform-origin:46px 22px; animation:blip 3.4s ease-in-out infinite}
+  @keyframes draw{0%{stroke-dashoffset:230}45%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+  @keyframes blip{0%,45%{transform:scale(.6); opacity:.3}60%{transform:scale(1.25); opacity:1}100%{transform:scale(1); opacity:.9}}
+
+  /* ----- Kibble Code (cream + orange paw) ----- */
+  .ad-kibble{background:#FFF8EE; color:#142019; box-shadow:0 10px 30px -12px rgba(255,107,53,.5)}
+  .ad-kibble:hover{box-shadow:0 22px 44px -14px rgba(255,107,53,.55); border-color:#FF6B35}
+  .ad-kibble .ad-badge{background:#142019; color:#D8FF62}
+  .ad-kibble .ad-cta{color:#142019}
+  .ad-kibble .ad-cta .pill{background:#FF6B35; color:#fff; padding:8px 14px; border-radius:10px}
+  .kb-paw{width:46px; height:46px; display:block; transition:transform .35s}
+  .ad-kibble:hover .kb-paw{transform:translateY(-3px) rotate(-6deg)}
+  .kb-dots{position:absolute; right:22px; bottom:20px; display:flex; gap:8px; pointer-events:none}
+  .kb-dots i{width:10px; height:10px; border-radius:50%; display:block; animation:hop 1.6s ease-in-out infinite}
+  .kb-dots i:nth-child(1){background:#FF6B35}
+  .kb-dots i:nth-child(2){background:#FE88B0; animation-delay:.2s}
+  .kb-dots i:nth-child(3){background:#D8FF62; animation-delay:.4s}
+  @keyframes hop{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+  @media(prefers-reduced-motion:reduce){
+    .ad, .ad .ad-cta svg, .kb-paw{transition:none}
+    .fizz .row i, .mcs-line .pulse, .mcs-line .dot, .kb-dots i{animation:none}
+    .fizz .row i{width:100%} .mcs-line .pulse{stroke-dashoffset:0}
+  }
 </style>
 </head>
 <body>
@@ -95,20 +150,83 @@
 
     <section>
       <h2>Portfolio</h2>
+      <div class="ads">
 
-      <div class="property">
-        <div class="info"><h3>MyCryptoSignal</h3><p>Cryptocurrency market-data publication and public API.</p></div>
-        <span class="badge live">Live</span>
-      </div>
+        <!-- FirmaBizz -->
+        <a class="ad ad-firmabizz" href="https://firmabizz.com/" target="_blank" rel="noopener">
+          <div class="ad-top">
+            <span class="mark" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h4"/>
+              </svg>
+            </span>
+            <span class="ad-badge">Live</span>
+          </div>
+          <div class="ad-body">
+            <h3>FirmaBizz</h3>
+            <p>Software that helps you prepare common immigration and tax forms.</p>
+            <span class="ad-cta">Visit FirmaBizz
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <div class="fizz" aria-hidden="true">
+            <div class="row"><i></i></div><div class="row"><i></i></div><div class="row"><i></i></div>
+          </div>
+        </a>
 
-      <div class="property">
-        <div class="info"><h3>FirmaBizz</h3><p>Software for preparing common government forms.</p></div>
-        <span class="badge live">Live</span>
-      </div>
+        <!-- MyCryptoSignal -->
+        <a class="ad ad-mcs" href="https://mycryptosignal.com/" target="_blank" rel="noopener">
+          <div class="ad-top">
+            <span class="mark" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 100 100"><path d="M12 62H34L46 22L58 62H88" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="46" cy="22" r="8" fill="currentColor"/></svg>
+            </span>
+            <span class="ad-badge">Live</span>
+          </div>
+          <div class="ad-body">
+            <h3>MyCryptoSignal</h3>
+            <p>Cryptocurrency market-data publication with a free public API.</p>
+            <span class="tag">Data, not advice.</span><br>
+            <span class="ad-cta">Visit MyCryptoSignal
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <div class="mcs-line" aria-hidden="true">
+            <svg viewBox="0 0 100 84">
+              <path class="pulse" d="M0 60H22L44 18L62 60H100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle class="dot" cx="44" cy="18" r="5" fill="currentColor"/>
+            </svg>
+          </div>
+        </a>
 
-      <div class="property">
-        <div class="info"><h3>Kibble Code</h3><p>An online store for dog supplies and gear.</p></div>
-        <span class="badge build">Launching</span>
+        <!-- Kibble Code -->
+        <a class="ad ad-kibble wide" href="https://kibblecode.com/" target="_blank" rel="noopener">
+          <div class="ad-top">
+            <span class="kb-paw" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="46" height="46">
+                <rect width="64" height="64" rx="14" fill="#FF6B35"/>
+                <g fill="#142019">
+                  <ellipse cx="20" cy="24" rx="6" ry="8.5" transform="rotate(-22 20 24)"/>
+                  <ellipse cx="31" cy="18" rx="5.5" ry="8.2" transform="rotate(-4 31 18)"/>
+                  <ellipse cx="43" cy="19" rx="5.5" ry="8" transform="rotate(14 43 19)"/>
+                  <ellipse cx="52" cy="28" rx="5.2" ry="7.6" transform="rotate(32 52 28)"/>
+                  <path d="M21 42C23 34 30 29 37 30C45 29 52 37 52 43C53 52 45 55 37 50C27 55 19 50 21 42Z"/>
+                </g>
+                <path d="M30 41Q37 45 45 41" fill="none" stroke="#D8FF62" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="ad-badge">Launching</span>
+          </div>
+          <div class="ad-body">
+            <h3>Kibble Code</h3>
+            <p>An online store for dog supplies and gear.</p>
+            <span class="ad-cta"><span class="pill">Visit Kibble Code</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <div class="kb-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        </a>
+
       </div>
     </section>
 

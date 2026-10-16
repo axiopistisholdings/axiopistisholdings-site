@@ -12,11 +12,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
 <!-- Kibble Code brand typefaces (Bricolage Grotesque + DM Sans) — used only on the
-     Kibble Code card, and DM Serif Display for the Orbitsave card, so each card's lettering
-     matches its own brand. -->
+     Kibble Code card, so its lettering matches the brand. The Orbitsave card uses the official
+     wordmark image from the Orbitsave repository instead of a webfont. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:opsz,wght@9..40,400..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://axiopistisholdings.com/">
@@ -151,31 +151,24 @@
     color:#071334; box-shadow:0 10px 30px -12px rgba(21,89,219,.45); padding-bottom:96px}
   .ad-orbitsave:hover{box-shadow:0 22px 44px -14px rgba(21,89,219,.5); border-color:#1559db}
   .ad-orbitsave .mark{background:#fff; box-shadow:0 4px 12px rgba(7,19,52,.12)}
-  .ad-orbitsave .mark svg{width:30px; height:30px; display:block}
+  .ad-orbitsave .ob-mark img{width:32px; height:32px; display:block}
   .ad-orbitsave .ad-badge{background:rgba(7,19,52,.88); color:#cdf3ff}
   .ad-orbitsave .ad-cta{color:#0f3f8f}
   .ad-orbitsave .tag{display:inline-block; margin-top:12px; font-size:.8rem; letter-spacing:.4px;
       color:#0f7fae; text-transform:uppercase}
-  /* Orbitsave's real lettering: DM Serif Display for the name, DM Sans for the rest of the card. */
-  .ad-orbitsave h3{font-family:"DM Serif Display",Georgia,"Times New Roman",serif;
-      font-weight:400; letter-spacing:-.01em}
-  .ad-orbitsave p,
-  .ad-orbitsave .ad-badge,
-  .ad-orbitsave .ad-cta,
-  .ad-orbitsave .tag{font-family:"DM Sans",-apple-system,sans-serif}
-  /* its orbit motif, drawn in the brand's blue + teal */
-  .ob-orbit{position:absolute; left:0; right:0; bottom:0; height:78px; color:#1559db;
-      opacity:.9; pointer-events:none}
-  .ob-orbit svg{width:100%; height:100%; display:block}
-  .ob-orbit .ring{stroke-dasharray:260; stroke-dashoffset:260; animation:obdraw 4s ease-in-out infinite}
-  .ob-orbit .node{transform-box:fill-box; transform-origin:center; animation:obnode 4s ease-in-out infinite}
-  @keyframes obdraw{0%{stroke-dashoffset:250}50%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
-  @keyframes obnode{0%,50%{transform:scale(.55); opacity:.35}66%{transform:scale(1.3); opacity:1}100%{transform:scale(1); opacity:.95}}
+  /* the official wordmark image is the card's heading */
+  .ad-orbitsave h3{margin:0 0 8px}
+  .ob-wordmark{display:block; width:auto; height:30px}
+  /* the official Orbitsave horizon art, faded in at the foot of the card */
+  .ob-horizon{position:absolute; left:0; right:0; bottom:0; height:62px; pointer-events:none;
+      background:url(orbitsave-horizon.webp) center bottom/100% auto no-repeat;
+      -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 55%);
+      mask-image:linear-gradient(180deg,transparent 0,#000 55%)}
 
   @media(prefers-reduced-motion:reduce){
     .ad, .ad .ad-cta svg, .kb-paw{transition:none}
-    .fizz .row i, .mcs-line .pulse, .mcs-line .dot, .kb-dots i, .ob-orbit .ring, .ob-orbit .node{animation:none}
-    .fizz .row i{width:100%} .mcs-line .pulse{stroke-dashoffset:0} .ob-orbit .ring{stroke-dashoffset:0}
+    .fizz .row i, .mcs-line .pulse, .mcs-line .dot, .kb-dots i{animation:none}
+    .fizz .row i{width:100%} .mcs-line .pulse{stroke-dashoffset:0}
   }
 </style>
 </head>
@@ -286,28 +279,23 @@
           <div class="kb-dots" aria-hidden="true"><i></i><i></i><i></i></div>
         </a>
 
-        <!-- Orbitsave -->
+        <!-- Orbitsave — brand assets from the Orbitsave repository (orbitsave-logo.png) -->
         <a class="ad ad-orbitsave" href="https://orbitsave.com/" target="_blank" rel="noopener">
           <div class="ad-top">
-            <span class="mark" aria-hidden="true">
-              <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="29" fill="#1559db"/><ellipse cx="40" cy="40" rx="35" ry="13" fill="none" stroke="#13c6b6" stroke-width="3.4" transform="rotate(-28 40 40)"/><circle cx="66" cy="26" r="4.4" fill="#13c6b6"/></svg>
+            <span class="mark ob-mark" aria-hidden="true">
+              <img src="orbitsave-mark.png" alt="" width="237" height="237">
             </span>
             <span class="ad-badge">Live</span>
           </div>
           <div class="ad-body">
-            <h3>Orbitsave</h3>
+            <h3><img class="ob-wordmark" src="orbitsave-wordmark.png" alt="Orbitsave" width="579" height="107"></h3>
             <p>The all-in delivered cost of anything you import — item, live shipping, US &amp; Canada duty. Plus the suppliers behind it.</p>
             <span class="tag">Estimates, not a customs ruling.</span><br>
             <span class="ad-cta">Visit Orbitsave
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
             </span>
           </div>
-          <div class="ob-orbit" aria-hidden="true">
-            <svg viewBox="0 0 200 44" preserveAspectRatio="none">
-              <path class="ring" d="M0 34C42 34 54 9 100 9C146 9 158 34 200 34" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
-              <circle class="node" cx="100" cy="9" r="4.5" fill="#13c6b6"/>
-            </svg>
-          </div>
+          <div class="ob-horizon" aria-hidden="true"></div>
         </a>
 
       </div>
